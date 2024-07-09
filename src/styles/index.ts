@@ -22,34 +22,36 @@ export const {
             placeholder: '#0A3871', 
         },
     },
+    media: {
+        bp1: '(max-width: 1210px)', 
+        bp2: '(max-width: 768px)',
+        bp3: '(max-width: 480px)', 
+    },
 });
 
 export const Container = styled('main', {
     backgroundColor: '$background',
     display: "flex",
+    flexDirection: "column",
     minHeight: '100vh',
-    justifyContent: "center",
-    alignContent: 'center',
-  
-    input: {
-        width: '100%',
-        maxWidth: 680,
-        height: 48,
-        padding: '0 16px',
-        marginBottom: '16px',
-        borderRadius: '4px',
-        border: '1px solid $graytext',
-        fontSize: "2.1rem",
-        color: "$button",
+    justifyContent: "space-between",
+    alignItems: 'center',
+    padding: '50px',
 
-        '&::placeholder': {
-            color: '$button', 
-        },
+    '@bp1': {
+        padding: '20px',
+    },
+});
 
-        '&:focus': {
-            borderColor: '$button',
-            outline: 'none', 
-        },
+export const Wrapper = styled('div', {
+    display: 'flex',
+    width: '100%',
+    maxWidth: 1200, 
+    alignItems: 'flex-start',
+
+    '@bp1': {
+        flexDirection: 'column',
+        alignItems: 'center',
     },
 });
 
@@ -57,6 +59,13 @@ export const Header = styled('header', {
     width: '100%',
     padding: 50,
     backgroundColor: '$background',
+
+    '@bp1': {
+        padding: '20px', 
+        
+    },
+
+
 });
 
 export const MessageSection = styled('div', {
@@ -70,8 +79,16 @@ export const MessageSection = styled('div', {
     height: '100%',
     width: '100%',
     maxWidth: 400,
-    minHeight: 900,
+    minHeight: 800,
     gap: '32px',
+    marginLeft: 'auto', 
+    marginTop: '-150px', 
+
+    '@bp1': {
+        marginTop: '20px', 
+        minHeight: '600px', 
+        marginLeft: '0', 
+    },
 
     '.message-section': {
         display: 'flex',
@@ -97,6 +114,69 @@ export const InputSection = styled('div', {
     display: "flex",
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: "center",
+    gap: '16px',
+
+    textarea: {
+        width: '100%',
+        maxWidth: 680,
+        minHeight: 48,
+        padding: "20px 0 10px 20px",
+        borderRadius: '10px',
+        border: '1px solid $graytext',
+        fontSize: "2.1rem",
+        color: "$button",
+        resize: 'none', 
+        overflow: 'hidden',
+
+        '&::placeholder': {
+            color: '$button',
+        },
+
+        '&:focus': {
+            borderColor: '$button',
+            outline: 'none',
+        },
+    },
+
+    '@bp1': {
+        textarea: {
+            maxWidth: '100%', 
+            boxSizing: 'border-box', 
+        }
+    },
+});
+
+export const ButtonSection = styled('div', {
+    width: '100%',
+    display: "flex",
+    flexDirection: 'column',
+    alignItems: 'end',
+    justifyContent: "end",
+    marginTop: 200,
+    gap: '16px',
+
+    '.alert-message': {
+        textAlign: 'left',
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start", 
+        width: '100%',
+        gap: 10,
+    },
+
+    '.buttons': {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: '2rem',
+        width: '100%',
+
+        '@bp1': {
+            flexDirection: 'column', 
+            alignItems: 'center',
+            gap: '1rem',
+        }
+    },
 
     button: {
         borderRadius: 24,
@@ -110,22 +190,13 @@ export const InputSection = styled('div', {
         },
     },
 
-    '.buttons': {
-        display: 'flex',
-        flexDirection: 'row',
-        gap: '2rem',
-        width: '100%',
-        maxWidth: 680,
-        marginTop: '16px', 
-    },
-
     '.Crypto': {
         backgroundColor: '$button',
         color: "$white",
         fontSize: '1rem',
 
         '&:hover': {
-            backgroundColor: '$buttonHover', 
+            backgroundColor: '$buttonHover',
         },
     },
 
@@ -135,7 +206,12 @@ export const InputSection = styled('div', {
         fontSize: '1rem',
 
         '&:hover': {
-            backgroundColor: '#b0b8c2', 
+            backgroundColor: '#b0b8c2',
         },
+    },
+
+    '@bp1': {
+        alignItems: 'center', 
+        marginTop: '50px', 
     },
 });
