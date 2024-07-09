@@ -62,10 +62,15 @@ export const Header = styled('header', {
 
     '@bp1': {
         padding: '20px', 
-        
     },
-
-
+    
+    '@bp3': {
+        padding: 0,
+        img: {
+            width: '100%',
+            marginBottom: 50,
+        }
+    },
 });
 
 export const MessageSection = styled('div', {
@@ -93,21 +98,49 @@ export const MessageSection = styled('div', {
     '.message-section': {
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'space-between',
+        height: '100%',
+        width: '100%',
         alignItems: 'center',
-        justifyContent: 'center',
         textAlign: 'center',
 
         h2: {
-            margin: '0 0 8px 0',
+            alignSelf: 'center',
+            margin: '0px 0 8px 0',
             fontSize: '1.5rem',
         },
     
         p: {
-            fontSize: '1rem',
-            color: '$graytext',
-        }
+            flexGrow: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '1.2rem',
+            color: '$button',
+            wordBreak: 'break-all',
+            margin: '16px 0',
+        },
+        
+        button: {
+            alignSelf: 'center',
+            marginTop: '16px',
+            padding: '8px 16px',
+            border: 'none',
+            borderRadius: '8px',
+            backgroundColor: '$button',
+            color: '$white',
+            cursor: 'pointer',
+
+            '&:hover': {
+                backgroundColor: '$buttonHover',
+            },
+        },
+
+     
     }
 });
+
+
 
 export const InputSection = styled('div', {
     width: '100%',
@@ -155,6 +188,8 @@ export const ButtonSection = styled('div', {
     justifyContent: "end",
     marginTop: 200,
     gap: '16px',
+
+    
 
     '.alert-message': {
         textAlign: 'left',
@@ -213,5 +248,16 @@ export const ButtonSection = styled('div', {
     '@bp1': {
         alignItems: 'center', 
         marginTop: '50px', 
+
+        '.alert-message': {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center", 
+            width: '100%',
+            gap: 10,
+        },
     },
 });
+
+
+
