@@ -1,6 +1,6 @@
 # 🔒 Encriptador de Texto com React 🔑
 
-- [Acesse Otakulandia](https://one-challenger.vercel.app)
+- [Acesse One-Challenger](https://one-challenger.vercel.app)
 
 ## Este projeto é uma aplicação web desenvolvida com React que permite criptografar e descriptografar textos usando AES. <br/> A aplicação também permite copiar o texto criptografado ou descriptografado para a área de transferência e ajusta automaticamente a altura do campo de texto.
 ![localhost_3000_ (1)](https://github.com/andrewhenrique2/ONE-CHALLENGER/assets/103382295/e0e25f0b-93a6-463f-a713-ba713f2f4b81)
