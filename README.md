@@ -4,11 +4,11 @@
 
 ![localhost_3000_ (1)](https://github.com/andrewhenrique2/ONE-CHALLENGER/assets/103382295/e0e25f0b-93a6-463f-a713-ba713f2f4b81)
 
-![iPhone-13-PRO-MAX-localhost (2)](https://github.com/andrewhenrique2/ONE-CHALLENGER/assets/103382295/4a0c67d7-2c96-417b-ab1c-0ddcbec8e127) ![localhost_3000_ (2)](https://github.com/andrewhenrique2/ONE-CHALLENGER/assets/103382295/9f0239f7-cbc3-41cb-9528-87f2448bc662)
+![iPhone-13-PRO-MAX-localhost (2)](https://github.com/andrewhenrique2/ONE-CHALLENGER/assets/103382295/4a0c67d7-2c96-417b-ab1c-0ddcbec8e127) 
 
 
 
-## Este projeto é uma aplicação web desenvolvida com React que permite criptografar e descriptografar textos usando AES. A aplicação também permite copiar o texto criptografado ou descriptografado para a área de transferência e ajusta automaticamente a altura do campo de texto.
+## Este projeto é uma aplicação web desenvolvida com React que permite criptografar e descriptografar textos usando AES. <br/> A aplicação também permite copiar o texto criptografado ou descriptografado para a área de transferência e ajusta automaticamente a altura do campo de texto.
 
 ## ✨ Funcionalidades
 🔐 Criptografar e Descriptografar Texto: Utiliza AES para proteger e recuperar informações. <br/>
