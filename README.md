@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🔒 Encriptador de Texto com React 🔑
 
-## Getting Started
+- [View live One-Challenger](https://one-challenger.vercel.app)
 
-First, run the development server:
+## Este projeto é uma aplicação web desenvolvida com React que permite criptografar e descriptografar textos usando AES. <br/> A aplicação também permite copiar o texto criptografado ou descriptografado para a área de transferência e ajusta automaticamente a altura do campo de texto.
+![localhost_3000_ (1)](https://github.com/andrewhenrique2/ONE-CHALLENGER/assets/103382295/e0e25f0b-93a6-463f-a713-ba713f2f4b81)
 
-```bash
+
+
+## ✨ Funcionalidades
+🔐 Criptografar e Descriptografar Texto: Utiliza AES para proteger e recuperar informações. <br/>
+📋 Copiar Texto: Copia o texto criptografado/descriptografado para a área de transferência. <br/>
+📏 Ajuste Automático de Altura: Campo de texto que ajusta sua altura conforme o conteúdo. <br/>
+## 🛠️ Tecnologias
+React ⚛️ <br/> 
+TypeScript ⌨️ <br/>
+CryptoJS 🔒 <br/>
+Stitches 💅 <br/>
+Next.js 🚀 <br/>
+
+## ![iPhone-13-PRO-MAX-localhost (2)](https://github.com/andrewhenrique2/ONE-CHALLENGER/assets/103382295/4a0c67d7-2c96-417b-ab1c-0ddcbec8e127) 
+
+## 📦 Instalação
+
+Clone o repositório: <br/>
+sh
+Copiar código
+git clone https://github.com/seu-usuario/seu-repositorio.git
+Instale as dependências:
+sh <br/>
+Copiar código 
+npm install
+Inicie o servidor de desenvolvimento:
+sh
+Copiar código
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Acesse:
+arduino
+Copiar código
+http://localhost:3000
+## 🚀 Como Usar
+Digite o texto e clique em "Criptografar" para ver o texto criptografado. <br/>
+Cole o texto criptografado e clique em "Descriptografar" para ver o texto original. <br/>
+Use o botão "Copiar" para copiar o texto. <br/>
+## 📚 Curso
+Este projeto foi desenvolvido através do curso One Challenger.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📄 Licença
+Licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
