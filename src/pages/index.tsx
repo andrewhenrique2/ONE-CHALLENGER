@@ -92,7 +92,7 @@ export default function Home() {
           <ButtonSection>
             <div className="alert-message">
               <FaExclamationCircle size={20} color="gray" />
-              <span>Apenas letras minúsculas e sem acento.</span>
+              <span>Insira seu texto e clique em criptografar.</span>
             </div>
             <div className="buttons">
               <button className="Crypto" onClick={handleEncrypt}>Criptografar</button>
