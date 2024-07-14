@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Container, Wrapper, MessageSection, InputSection, Header, ButtonSection } from "@/styles";
 import img from '../assets/img.svg';
 import { FaExclamationCircle } from 'react-icons/fa';
 import logo from '../assets/logo.svg';
 import Image from 'next/image';
-import CryptoJS from 'crypto-js'; // importando biblioteca para criptografrar os textos
+import CryptoJS from 'crypto-js'; // Importando biblioteca para criptografar os textos
 
 // Função de criptografia usando AES
 const encryptText = (text: string, passphrase: string): string => {
@@ -22,9 +22,8 @@ const decryptText = (ciphertext: string, passphrase: string): string => {
 };
 
 export default function Home() {
-  const [text, setText] = useState<string>("");
-  const [encryptedText, setEncryptedText] = useState<string>("");
-  const [operation, setOperation] = useState<string>(""); 
+  const [text, setText] = useState<string>(""); // Estado para armazenar o texto
+  const [isEncrypted, setIsEncrypted] = useState<boolean>(false); // Estado para verificar se o texto está criptografado
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // Ajusta a altura do <textarea> para scrollHeight, a altura do conteúdo.
@@ -38,25 +37,31 @@ export default function Home() {
   // Defina uma frase secreta para a criptografia
   const passphrase = "your-secret-passphrase";
 
-  // Criptografa o texto e atualiza o estado.
+  // Função de criptografia
   const handleEncrypt = (): void => {
-    const encrypted = encryptText(text, passphrase);
-    setText(encrypted);
-    setEncryptedText(encrypted);
-    setOperation("encrypt");
+    if (!isEncrypted) {
+      const encrypted = encryptText(text, passphrase);
+      setText(encrypted); // Atualiza o estado do texto com o texto criptografado
+      setIsEncrypted(true); // Define o estado como criptografado
+    } else {
+      alert("O texto já está criptografado.");
+    }
   };
 
-  // Descriptografa o texto e atualiza o estado.
+  // Função de descriptografia
   const handleDecrypt = (): void => {
-    const decrypted = decryptText(text, passphrase);
-    setText(decrypted);
-    setEncryptedText(decrypted);
-    setOperation("decrypt");
+    if (isEncrypted) {
+      const decrypted = decryptText(text, passphrase);
+      setText(decrypted); // Atualiza o estado do texto com o texto descriptografado
+      setIsEncrypted(false); // Define o estado como não criptografado
+    } else {
+      alert("O texto não está criptografado.");
+    }
   };
 
-  // Função de copiar o texto 
+  // Função de copiar o texto
   const handleCopy = (): void => {
-    navigator.clipboard.writeText(encryptedText);
+    navigator.clipboard.writeText(text);
   };
 
   return (
@@ -89,18 +94,18 @@ export default function Home() {
         </div>
 
         <MessageSection>
-          {encryptedText && operation && (
+          {text && (
             <div className="message-section">
-              {operation === "encrypt" ? (
+              {isEncrypted ? (
                 <h2>Seu texto foi criptografado com sucesso!</h2>
               ) : (
                 <h2>Seu texto foi descriptografado com sucesso!</h2>
               )}
-              <p>{encryptedText}</p>
+              <p>{text}</p>
               <button onClick={handleCopy}>Copiar</button>
             </div>
           )}
-          {!encryptedText && !operation && (
+          {!text && (
             <>
               <Image src={img} alt="Ilustração" />
               <div className="message-section">
