@@ -22,8 +22,10 @@ const decryptText = (ciphertext: string, passphrase: string): string => {
 };
 
 export default function Home() {
-  const [text, setText] = useState<string>(""); // Estado para armazenar o texto
+  const [text, setText] = useState<string>(""); // Estado para armazenar o texto digitado pelo usuário
+  const [displayText, setDisplayText] = useState<string>(""); // Estado para exibir o texto criptografado/descriptografado
   const [isEncrypted, setIsEncrypted] = useState<boolean>(false); // Estado para verificar se o texto está criptografado
+  const [showMessage, setShowMessage] = useState<boolean>(true); // Estado para controlar a exibição da mensagem
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // Ajusta a altura do <textarea> para scrollHeight, a altura do conteúdo.
@@ -42,7 +44,9 @@ export default function Home() {
     if (!isEncrypted) {
       const encrypted = encryptText(text, passphrase);
       setText(encrypted); // Atualiza o estado do texto com o texto criptografado
+      setDisplayText(encrypted); // Atualiza o estado do texto a ser exibido com o texto criptografado
       setIsEncrypted(true); // Define o estado como criptografado
+      setShowMessage(false); // Esconde a mensagem inicial
     } else {
       alert("O texto já está criptografado.");
     }
@@ -53,6 +57,7 @@ export default function Home() {
     if (isEncrypted) {
       const decrypted = decryptText(text, passphrase);
       setText(decrypted); // Atualiza o estado do texto com o texto descriptografado
+      setDisplayText(decrypted); // Atualiza o estado do texto a ser exibido com o texto descriptografado
       setIsEncrypted(false); // Define o estado como não criptografado
     } else {
       alert("O texto não está criptografado.");
@@ -61,7 +66,7 @@ export default function Home() {
 
   // Função de copiar o texto
   const handleCopy = (): void => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(displayText);
   };
 
   return (
@@ -76,7 +81,10 @@ export default function Home() {
               ref={textareaRef}
               placeholder="Digite seu texto"
               value={text}
-              onChange={(e) => setText(e.target.value)}
+              onChange={(e) => {
+                setText(e.target.value);
+                if (!e.target.value) setShowMessage(true); // Mostrar a mensagem se o textarea estiver vazio
+              }}
               className="text-input"
             />
           </InputSection>
@@ -94,18 +102,17 @@ export default function Home() {
         </div>
 
         <MessageSection>
-          {text && (
+          {!showMessage ? (
             <div className="message-section">
               {isEncrypted ? (
                 <h2>Seu texto foi criptografado com sucesso!</h2>
               ) : (
                 <h2>Seu texto foi descriptografado com sucesso!</h2>
               )}
-              <p>{text}</p>
+              <p>{displayText}</p>
               <button onClick={handleCopy}>Copiar</button>
             </div>
-          )}
-          {!text && (
+          ) : (
             <>
               <Image src={img} alt="Ilustração" />
               <div className="message-section">
