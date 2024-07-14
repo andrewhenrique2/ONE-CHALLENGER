@@ -27,9 +27,7 @@ export default function Home() {
   const [operation, setOperation] = useState<string>(""); 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-
-
-// Ajusta a altura do <textarea> para scrollHeight, a altura do conteúdo.
+  // Ajusta a altura do <textarea> para scrollHeight, a altura do conteúdo.
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
@@ -40,22 +38,23 @@ export default function Home() {
   // Defina uma frase secreta para a criptografia
   const passphrase = "your-secret-passphrase";
 
-  // Define a chave usada para criptografar e descriptografar o texto.
+  // Criptografa o texto e atualiza o estado.
   const handleEncrypt = (): void => {
     const encrypted = encryptText(text, passphrase);
+    setText(encrypted);
     setEncryptedText(encrypted);
     setOperation("encrypt");
   };
 
-
-  // Criptografa o texto e atualiza o estado.
+  // Descriptografa o texto e atualiza o estado.
   const handleDecrypt = (): void => {
     const decrypted = decryptText(text, passphrase);
+    setText(decrypted);
     setEncryptedText(decrypted);
     setOperation("decrypt");
   };
 
-  // funcao de copiar o texto 
+  // Função de copiar o texto 
   const handleCopy = (): void => {
     navigator.clipboard.writeText(encryptedText);
   };
@@ -90,7 +89,7 @@ export default function Home() {
         </div>
 
         <MessageSection>
-          {encryptedText ? (
+          {encryptedText && operation && (
             <div className="message-section">
               {operation === "encrypt" ? (
                 <h2>Seu texto foi criptografado com sucesso!</h2>
@@ -100,7 +99,8 @@ export default function Home() {
               <p>{encryptedText}</p>
               <button onClick={handleCopy}>Copiar</button>
             </div>
-          ) : (
+          )}
+          {!encryptedText && !operation && (
             <>
               <Image src={img} alt="Ilustração" />
               <div className="message-section">
